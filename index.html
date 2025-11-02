@@ -1,1429 +1,237 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan - Faisal & Anisa</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --white: #ffffff;
-            --cream: #faf7f2;
-            --soft-cream: #f5f1ea;
-            --gold: #d4af37;
-            --soft-gold: #e8d9b0;
-            --light-gold: #f7f2e5;
-            --dark-gray: #3a3a3a;
-            --medium-gray: #7a7a7a;
-            --light-gray: #e0e0e0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Cormorant Garamond', serif;
-            background-color: var(--cream);
-            color: var(--dark-gray);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-
-        section {
-            padding: 100px 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-        }
-
-        h1, h2, h3 {
-            font-weight: 500;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        h1 {
-            font-size: 4rem;
-            letter-spacing: 3px;
-            margin-bottom: 30px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        h2 {
-            font-size: 3rem;
-            position: relative;
-            margin-bottom: 60px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        h2::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--gold), transparent);
-            margin: 20px auto;
-        }
-
-        p {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 20px 0;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            transform: translateY(0);
-            backdrop-filter: blur(10px);
-        }
-
-        header.scrolled {
-            padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.2rem;
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 40px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark-gray);
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 5px 0;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: var(--gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-        }
-
-        .hamburger span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background-color: var(--dark-gray);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(250, 247, 242, 0.85), rgba(250, 247, 242, 0.9)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.3;
-        }
-
-        .bismillah {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
-            color: var(--gold);
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .salam {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            color: var(--medium-gray);
-            font-style: italic;
-        }
-
-        .hero h1 {
-            font-size: 1.8rem;
-            letter-spacing: 5px;
-            margin-bottom: 20px;
-            font-weight: 300;
-            text-transform: uppercase;
-        }
-
-        /* Animasi Nama Mempelai - TANPA HOVER */
-        @keyframes gentleSway {
-            0%, 100% { transform: rotate(0deg) scale(1); }
-            25% { transform: rotate(-0.5deg) scale(1.01); }
-            75% { transform: rotate(0.5deg) scale(1.01); }
-        }
-
-        .couple-names {
-            font-family: 'Dancing Script', cursive;
-            font-size: 5.5rem;
-            margin: 40px 0;
-            color: var(--dark-gray);
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            animation: gentleSway 10s ease-in-out infinite;
-            transform-origin: center;
-        }
-
-        .ampersand {
-            font-size: 4rem;
-            color: var(--gold);
-            margin: 0 20px;
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        .undangan-text {
-            max-width: 800px;
-            margin: 0 auto 40px;
-            font-size: 1.3rem;
-            line-height: 1.8;
-            text-align: center;
-        }
-
-        .parents-info {
-            margin: 40px 0;
-            font-size: 1.3rem;
-            line-height: 1.8;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .parent-line {
-            margin-bottom: 25px;
-        }
-
-        /* Animasi Teks Berkedip Halus */
-        @keyframes gentleGlow {
-            0%, 100% { 
-                text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-            }
-            50% { 
-                text-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 
-                            0 0 30px rgba(212, 175, 55, 0.4);
-            }
-        }
-
-        .wedding-date {
-            font-size: 1.8rem;
-            margin: 40px 0;
-            color: var(--gold);
-            letter-spacing: 2px;
-            font-weight: 500;
-            animation: gentleGlow 3s ease-in-out infinite;
-        }
-
-        .rsvp-btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background-color: transparent;
-            color: var(--dark-gray);
-            border: 2px solid var(--dark-gray);
-            text-decoration: none;
-            font-size: 1.2rem;
-            margin-top: 40px;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .rsvp-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--dark-gray);
-            transition: all 0.4s ease;
-            z-index: -1;
-        }
-
-        .rsvp-btn:hover {
-            color: var(--white);
-        }
-
-        .rsvp-btn:hover::before {
-            left: 0;
-        }
-
-        /* Animasi untuk Floral Divider */
-        @keyframes sway {
-            0%, 100% { transform: scaleX(1); }
-            50% { transform: scaleX(1.1); }
-        }
-
-        .floral-divider {
-            width: 150px;
-            height: 30px;
-            margin: 40px auto;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M10,10 C15,5 25,5 30,10 C35,15 45,15 50,10 C55,5 65,5 70,10 C75,15 85,15 90,10' stroke='%23d4af37' stroke-width='1' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;
-            animation: sway 6s ease-in-out infinite;
-        }
-
-        /* Ornamen Bunga Bergerak - DIPERBAIKI */
-        .floral-ornament {
-            position: absolute;
-            opacity: 0.3;
-            z-index: 1;
-            pointer-events: none;
-            animation-duration: 20s;
-            animation-timing-function: ease-in-out;
-            animation-iteration-count: infinite;
-        }
-
-        .floral-left {
-            left: 5%;
-            animation-name: floatLeft;
-        }
-
-        .floral-right {
-            right: 5%;
-            animation-name: floatRight;
-        }
-
-        .floral-ornament-2 {
-            animation-delay: 5s;
-            opacity: 0.2;
-        }
-
-        .floral-ornament-3 {
-            animation-delay: 10s;
-            opacity: 0.15;
-        }
-
-        .floral-ornament-4 {
-            animation-delay: 15s;
-            opacity: 0.25;
-        }
-
-        @keyframes floatLeft {
-            0%, 100% { 
-                transform: translateY(0px) rotate(0deg) scale(1);
-            }
-            25% { 
-                transform: translateY(-30px) rotate(-8deg) scale(1.1);
-            }
-            50% { 
-                transform: translateY(15px) rotate(8deg) scale(0.9);
-            }
-            75% { 
-                transform: translateY(-20px) rotate(-4deg) scale(1.05);
-            }
-        }
-
-        @keyframes floatRight {
-            0%, 100% { 
-                transform: translateY(0px) rotate(0deg) scale(1);
-            }
-            25% { 
-                transform: translateY(-35px) rotate(8deg) scale(1.1);
-            }
-            50% { 
-                transform: translateY(20px) rotate(-8deg) scale(0.9);
-            }
-            75% { 
-                transform: translateY(-15px) rotate(4deg) scale(1.05);
-            }
-        }
-
-        /* Animasi Scroll Indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            color: var(--gold);
-            font-size: 1.5rem;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0) translateX(-50%);
-            }
-            40% {
-                transform: translateY(-20px) translateX(-50%);
-            }
-            60% {
-                transform: translateY(-10px) translateX(-50%);
-            }
-        }
-
-        /* Event Details */
-        .event-details {
-            background-color: var(--soft-cream);
-            position: relative;
-        }
-
-        .event-details::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
-        }
-
-        .event-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 50px;
-            margin-bottom: 60px;
-        }
-
-        /* Animasi Hover untuk Card */
-        .event-card, .contact-card {
-            flex: 1;
-            min-width: 320px;
-            text-align: center;
-            padding: 40px 30px;
-            background-color: var(--white);
-            border-radius: 5px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .event-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--gold), var(--soft-gold));
-        }
-
-        .event-card:hover, .contact-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .event-card h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--gold);
-            font-family: 'Playfair Display', serif;
-        }
-
-        .event-card p {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .event-icon {
-            font-size: 2.5rem;
-            color: var(--gold);
-            margin-bottom: 20px;
-        }
-
-        .map-container {
-            height: 450px;
-            margin-top: 30px;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            border: 1px solid var(--light-gray);
-        }
-
-        /* Photo Gallery */
-        .gallery {
-            background-color: var(--cream);
-            position: relative;
-        }
-
-        .gallery-container {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 5px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .slides {
-            display: flex;
-            transition: transform 0.6s ease;
-        }
-
-        .slide {
-            min-width: 100%;
-            position: relative;
-        }
-
-        .slide img {
-            width: 100%;
-            display: block;
-            transition: transform 0.6s ease;
-        }
-
-        .gallery-nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-        }
-
-        .gallery-dot {
-            width: 12px;
-            height: 12px;
-            background-color: var(--light-gray);
-            border-radius: 50%;
-            margin: 0 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .gallery-dot.active {
-            background-color: var(--gold);
-            transform: scale(1.2);
-        }
-
-        .gallery-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.7);
-            color: var(--dark-gray);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-
-        .gallery-arrow:hover {
-            background-color: var(--white);
-            color: var(--gold);
-        }
-
-        .gallery-arrow.prev {
-            left: 20px;
-        }
-
-        .gallery-arrow.next {
-            right: 20px;
-        }
-
-        /* Countdown Timer */
-        .countdown {
-            background-color: var(--soft-cream);
-            text-align: center;
-            position: relative;
-        }
-
-        .timer {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .timer-unit {
-            text-align: center;
-            position: relative;
-        }
-
-        .timer-value {
-            font-size: 3.5rem;
-            font-weight: 300;
-            color: var(--gold);
-            display: block;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .timer-label {
-            font-size: 1.1rem;
-            color: var(--medium-gray);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 500;
-        }
-
-        .timer-separator {
-            font-size: 2.5rem;
-            color: var(--gold);
-            align-self: center;
-            margin-top: -20px;
-        }
-
-        /* Contact Section */
-        .contact {
-            background-color: var(--cream);
-        }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 50px;
-            margin-top: 40px;
-        }
-
-        .contact-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--gold);
-            font-family: 'Playfair Display', serif;
-        }
-
-        .contact-card p {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            background-color: var(--soft-cream);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dark-gray);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-        }
-
-        .social-icon:hover {
-            background-color: var(--gold);
-            color: var(--white);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-        }
-
-        /* Penutup Section */
-        .penutup {
-            background-color: var(--cream);
-            text-align: center;
-        }
-
-        .penutup-text {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.3rem;
-            line-height: 1.8;
-        }
-
-        .keluarga {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 60px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .keluarga .orang-tua {
-            padding: 20px;
-            border-top: 1px solid #d4af7f;
-            font-family: 'Merriweather', serif;
-        }
-
-        .keluarga .orang-tua p {
-            margin: 5px 0;
-            color: #333;
-            font-size: 1rem;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-gray);
-            color: var(--white);
-            text-align: center;
-            padding: 50px 0;
-        }
-
-        footer p {
-            font-size: 1.1rem;
-            margin-bottom: 0;
-            opacity: 0.8;
-        }
-
-        /* Animasi Heart Beat untuk Footer */
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.1); }
-            50% { transform: scale(1); }
-            75% { transform: scale(1.05); }
-        }
-
-        .footer-heart {
-            color: var(--gold);
-            margin: 0 5px;
-            animation: heartbeat 1.5s ease-in-out infinite;
-            display: inline-block;
-        }
-
-        /* Music Control */
-        /* Animasi Floating untuk Music Control */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); }
-        }
-
-        .music-control {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--gold);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 100;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .music-control:hover {
-            transform: scale(1.1);
-        }
-
-        .music-control i {
-            font-size: 1.2rem;
-        }
-
-        /* Scroll to Top */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--dark-gray);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 100;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .scroll-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            background-color: var(--gold);
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 3.2rem;
-            }
-            
-            h2 {
-                font-size: 2.5rem;
-            }
-            
-            .couple-names {
-                font-size: 4.5rem;
-            }
-            
-            .timer {
-                gap: 25px;
-            }
-            
-            .timer-value {
-                font-size: 2.8rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding-top: 70px;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 2.2rem;
-            }
-            
-            .couple-names {
-                font-size: 3.5rem;
-            }
-            
-            .bismillah {
-                font-size: 2.8rem;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                right: -100%;
-                width: 80%;
-                height: calc(100vh - 70px);
-                background-color: var(--white);
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding-top: 60px;
-                transition: right 0.4s ease;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
-            }
-            
-            .nav-links.active {
-                right: 0;
-            }
-            
-            .nav-links li {
-                margin: 20px 0;
-            }
-            
-            .hamburger {
-                display: flex;
-            }
-            
-            .hamburger.active span:nth-child(1) {
-                transform: rotate(45deg) translate(6px, 6px);
-            }
-            
-            .hamburger.active span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .hamburger.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -6px);
-            }
-            
-            .timer {
-                gap: 15px;
-            }
-            
-            .timer-value {
-                font-size: 2.2rem;
-            }
-            
-            .timer-separator {
-                display: none;
-            }
-            
-            .gallery-arrow {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-            
-            .music-control, .scroll-top {
-                width: 45px;
-                height: 45px;
-                bottom: 20px;
-            }
-            
-            .scroll-top {
-                left: 20px;
-            }
-
-            .floral-ornament {
-                display: none;
-            }
-        }
-
-        @media (max-width: 576px) {
-            section {
-                padding: 80px 0;
-            }
-            
-            .container {
-                padding: 0 20px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .couple-names {
-                font-size: 2.8rem;
-            }
-            
-            .bismillah {
-                font-size: 2.2rem;
-            }
-            
-            .parents-info {
-                font-size: 1.1rem;
-            }
-            
-            .timer {
-                flex-wrap: wrap;
-            }
-            
-            .timer-unit {
-                width: 45%;
-                margin-bottom: 20px;
-            }
-            
-            .event-card, .contact-card {
-                min-width: 100%;
-            }
-            
-            .gallery-arrow {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-            
-            .gallery-arrow.prev {
-                left: 10px;
-            }
-            
-            .gallery-arrow.next {
-                right: 10px;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 1s ease forwards;
-        }
-
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Tamu Undangan – Faisal & Anisa</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #f8f9fa, #e3f2fd);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-top: 30px;
+      color: #2c3e50;
+    }
+
+    .guest-list {
+      margin-top: 20px;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .name {
+      font-weight: 600;
+      color: #34495e;
+    }
+
+    .btn {
+      text-decoration: none;
+      background: #25D366;
+      color: white;
+      font-weight: bold;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #1ebe5d;
+    }
+
+    footer {
+      font-size: 12px;
+      color: #888;
+      margin: 30px 0 10px;
+    }
+  </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header id="header">
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">F & A</a>
-                <ul class="nav-links">
-                    <li><a href="#home">Beranda</a></li>
-                    <li><a href="#event">Acara</a></li>
-                    <li><a href="#gallery">Galeri</a></li>
-                    <li><a href="#countdown">Hitungan Mundur</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </div>
-    </header>
+  <h1>Daftar Tamu Undangan</h1>
+  <div class="guest-list" id="guestList"></div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <!-- Ornamen Bunga - DIPERBAIKI -->
-        <div class="floral-ornament floral-left">
-            <svg width="80" height="80" viewBox="0 0 100 100">
-                <path d="M50,20 C60,10 80,15 80,30 C80,45 65,50 50,40 C35,50 20,45 20,30 C20,15 40,10 50,20 Z" 
-                      fill="var(--gold)"/>
-                <path d="M50,25 C55,20 65,22 65,28 C65,34 58,37 50,32 C42,37 35,34 35,28 C35,22 45,20 50,25 Z" 
-                      fill="var(--soft-gold)"/>
-            </svg>
-        </div>
-        <div class="floral-ornament floral-right">
-            <svg width="80" height="80" viewBox="0 0 100 100">
-                <path d="M50,20 C60,10 80,15 80,30 C80,45 65,50 50,40 C35,50 20,45 20,30 C20,15 40,10 50,20 Z" 
-                      fill="var(--gold)"/>
-                <path d="M50,25 C55,20 65,22 65,28 C65,34 58,37 50,32 C42,37 35,34 35,28 C35,22 45,20 50,25 Z" 
-                      fill="var(--soft-gold)"/>
-            </svg>
-        </div>
-        <div class="floral-ornament floral-left floral-ornament-2">
-            <svg width="60" height="60" viewBox="0 0 100 100">
-                <path d="M30,50 C20,60 15,80 30,80 C45,80 50,65 40,50 C50,35 45,20 30,20 C15,20 20,35 30,50 Z" 
-                      fill="var(--gold)"/>
-            </svg>
-        </div>
-        <div class="floral-ornament floral-right floral-ornament-3">
-            <svg width="60" height="60" viewBox="0 0 100 100">
-                <path d="M70,50 C80,60 85,80 70,80 C55,80 50,65 60,50 C50,35 55,20 70,20 C85,20 80,35 70,50 Z" 
-                      fill="var(--gold)"/>
-            </svg>
-        </div>
-        <div class="floral-ornament floral-left floral-ornament-4">
-            <svg width="40" height="40" viewBox="0 0 100 100">
-                <path d="M50,30 C55,25 65,30 65,40 C65,50 55,55 50,50 C45,55 35,50 35,40 C35,30 45,25 50,30 Z" 
-                      fill="var(--soft-gold)"/>
-            </svg>
-        </div>
+  <footer>Faisal & Anisa Wedding Invitation</footer>
 
-        <div class="container">
-            <div class="bismillah fade-in">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</div>
-            <div class="salam fade-in delay-1">Assalamu'alaikum warahmatullahi wabarakatuh</div>
-            <div class="undangan-text fade-in delay-2">
-                <p>Dengan memohon rahmat & ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i sekalian untuk menghadiri acara pernikahan putra-putri keluarga kami:</p>
-            </div>
-            <div class="couple-names fade-in delay-2">
-                Faisal <span class="ampersand">&</span> Anisa
-            </div>
-            <div class="floral-divider fade-in delay-2"></div>
-            <div class="parents-info fade-in delay-3">
-                <div class="parent-line">
-                    <p>Faisal Rumakat, S.H.</p>
-                    <p>putra dari Bapak Nasir Rumakat & Ibu Aisa Buton</p>
-                </div>
-                <div class="parent-line">
-                    <p>Anisa F. Latuwael, S.E.</p>
-                    <p>putri dari Bapak Sarholi Latuwael (almarhum) & Ibu Riun Latbual</p>
-                </div>
-            </div>
-            <div class="wedding-date fade-in delay-4">Kamis, 6 November 2025</div>
-            
-            <!-- Scroll Indicator -->
-            <div class="scroll-indicator">
-                <i class="fas fa-chevron-down"></i>
-            </div>
-        </div>
-    </section>
+  <script>
+    // 🧾 Daftar tamu dengan link WA masing-masing
+    const guests = [
+      {
+        name: "abang usman SiP MH dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+abang+usman+SiP+MH+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71IM0%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "Ade nesa dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+Ade+nesa+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D712YX%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "ade yunita dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+ade+yunita+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D715N7%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "Al dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+Al+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71WQX%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "Amelia dan suami",
+        wa: "https://api.whatsapp.com/send?text=Kepada+Amelia+dan+suami%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71RJ5%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "angakatan 14 bursel",
+        wa: "https://api.whatsapp.com/send?text=Kepada+angakatan+14+bursel%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71PWA%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "angkatan 14 desa simi",
+        wa: "https://api.whatsapp.com/send?text=Kepada+angkatan+14+desa+simi%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71DQV%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "angkatan 14 waetawa",
+        wa: "https://api.whatsapp.com/send?text=Kepada+angkatan+14+waetawa%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71N5Z%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "Beb ida mu'min dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+Beb+ida+mu%27min+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D7137X%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "Citra",
+        wa: "https://api.whatsapp.com/send?text=Kepada+Citra%2C%0AKami+mengundang+Anda+untuk+menghadiri+acara+pernikahan+kami%0A%0AFaisal+Rumakat+%26+Anisa+F.+Latuwael%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D69BMV"
+      },
+      {
+        name: "beb Lina dan suami",
+        wa: "https://api.whatsapp.com/send?text=Kepada+beb+Lina+dan+suami%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71IU4%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "Besti rini dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+Besti+rini+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71AE1%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "besti sari dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+besti+sari+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71LA7%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "chum dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+chum+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71N1G%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "Ibu eji dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+Ibu+eji+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71BTQ%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "ica dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+ica+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71UM2%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "Ipar tima dan suami",
+        wa: "https://api.whatsapp.com/send?text=Kepada+Ipar+tima+dan+suami%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D7196U%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "kaka ina dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+kaka+ina+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71UJN%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "Kaka Sinta dan suami",
+        wa: "https://api.whatsapp.com/send?text=Kepada+Kaka+Sinta+dan+suami%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71ZWN%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "Keluarga besar ikab",
+        wa: "https://api.whatsapp.com/send?text=Kepada+Keluarga+besar+ikab%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71KIC%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "Kka embe dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+Kka+embe+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D713V2%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "Kka mala dan suami",
+        wa: "https://api.whatsapp.com/send?text=Kepada+Kka+mala+dan+suami%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71VLX%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "Kka oma dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+Kka+oma+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D717RT%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "Mama mira dan suami",
+        wa: "https://api.whatsapp.com/send?text=Kepada+Mama+mira+dan+suami%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D710N4%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "Mara akmil dan suami",
+        wa: "https://api.whatsapp.com/send?text=Kepada+Mara+akmil+dan+suami%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71YZ4%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "mis ica dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+mis+ica+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71YDC%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "Mom Lisa dan suami",
+        wa: "https://api.whatsapp.com/send?text=Kepada+Mom+Lisa+dan+suami%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D717IH%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "Nanu dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+Nanu+dan+pasangan+%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71JGM%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "noca dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+noca+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71WUI%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "onco mirla dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+onco+mirla+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71LAQ%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "pipit dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+pipit+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D710PJ%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "sahabat muna dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+sahabat+muna+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71PKC%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "sarina dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+sarina+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71P9T%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "sepupu neng s'kom dan pasangan",
+        wa: "https://api.whatsapp.com/send?text=Kepada+sepupu+neng+s%27kom+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71FHM%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+      {
+        name: "squad tarjelas",
+        wa: "https://api.whatsapp.com/send?text=Kepada+squad+tarjelas%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71QFG%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
+      },
+    //   {
+    //     name: "Citra",
+    //     wa: "https://api.whatsapp.com/send?text=Kepada+Citra%2C%0AKami+mengundang+Anda+untuk+menghadiri+acara+pernikahan+kami%0A%0AFaisal+Rumakat+%26+Anisa+F.+Latuwael%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D69BMV"
+    //   },
+      
+      // Tambahkan tamu lainnya di sini
+    ];
 
-    <!-- Event Details -->
-    <section id="event" class="event-details">
-        <div class="container">
-            <h2 class="fade-in">Yang InsyaAllah akan diselenggarakan</h2>
-            <div class="event-info">
-                <div class="event-card fade-in delay-1">
-                    <div class="event-icon">
-                        <i class="fas fa-ring"></i>
-                    </div>
-                    <h3>Akad Nikah</h3>
-                    <p>Kamis, 6 November 2025</p>
-                    <p>Pukul 11.00 WIT</p>
-                    <p>Lapangan Desa Simi, Buru Selatan</p>
-                </div>
-                <div class="event-card fade-in delay-2">
-                    <div class="event-icon">
-                        <i class="fas fa-glass-cheers"></i>
-                    </div>
-                    <h3>Resepsi</h3>
-                    <p>Kamis, 6 November 2025</p>
-                    <p>Pukul 20.00 WIT</p>
-                    <p>Lapangan Desa Simi, Buru Selatan</p>
-                </div>
-            </div>
-            <!-- <div class="map-container fade-in delay-3">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1010292.5596468946!2d125.72453745000001!3d-3.6550000000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d6f8b8b3d6b3b3b%3A0x2d6f8b8b3d6b3b3b!2sBuru%20Selatan%2C%20Maluku!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div> -->
-        </div>
-    </section>
-
-    <!-- Photo Gallery -->
-    <section id="gallery" class="gallery">
-        <div class="container">
-            <h2 class="fade-in">Galeri Foto</h2>
-            <div class="gallery-container fade-in delay-1">
-                <button class="gallery-arrow prev"><i class="fas fa-chevron-left"></i></button>
-                <button class="gallery-arrow next"><i class="fas fa-chevron-right"></i></button>
-                <div class="slides">
-                    <div class="slide">
-                        <img src="assets/IMG_1.jpg" alt="Foto Pre-Wedding 1">
-                    </div>
-                    <div class="slide">
-                        <img src="assets/IMG_2.jpg" alt="Foto Pre-Wedding 2">
-                    </div>
-                    <div class="slide">
-                        <img src="assets/IMG_3.jpg" alt="Foto Pre-Wedding 3">
-                    </div>
-                    <div class="slide">
-                        <img src="assets/IMG_4.jpg" alt="Foto Pre-Wedding 4">
-                    </div>
-                    <div class="slide">
-                        <img src="assets/IMG_5.jpg" alt="Foto Pre-Wedding 5">
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-nav fade-in delay-2">
-                <span class="gallery-dot active" data-index="0"></span>
-                <span class="gallery-dot" data-index="1"></span>
-                <span class="gallery-dot" data-index="2"></span>
-                <span class="gallery-dot" data-index="3"></span>
-                <span class="gallery-dot" data-index="4"></span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Countdown Timer -->
-    <section id="countdown" class="countdown">
-        <div class="container">
-            <h2 class="fade-in">Hitungan Mundur</h2>
-            <div class="timer fade-in delay-1">
-                <div class="timer-unit">
-                    <span id="days" class="timer-value">00</span>
-                    <span class="timer-label">Hari</span>
-                </div>
-                <div class="timer-separator">:</div>
-                <div class="timer-unit">
-                    <span id="hours" class="timer-value">00</span>
-                    <span class="timer-label">Jam</span>
-                </div>
-                <div class="timer-separator">:</div>
-                <div class="timer-unit">
-                    <span id="minutes" class="timer-value">00</span>
-                    <span class="timer-label">Menit</span>
-                </div>
-                <div class="timer-separator">:</div>
-                <div class="timer-unit">
-                    <span id="seconds" class="timer-value">00</span>
-                    <span class="timer-label">Detik</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Penutup Section -->
-    <section id="penutup" class="penutup">
-        <div class="container">
-            <h2 class="fade-in">Penutup</h2>
-            <div class="penutup-text fade-in delay-1">
-                <p>Merupakan suatu kebanggaan bagi kami apabila Bapak, Ibu/Saudara/i berkenan hadir untuk memberikan do'a restu kepada putra-putri kami.</p>
-                <p class="salam">Wassalamu'alaikum warahmatullahi wabarakatuh</p>
-                <p>Kami Yang Berbahagia</p>
-                <div class="keluarga">
-                    <div class="orang-tua">
-                        <p>Bapak Nasir Rumakat</p>
-                        <p>Ibu Aisa Buton</p>
-                    </div>
-                    <div class="orang-tua">
-                        <p>Bapak Sarholi Latuwael (Alm)</p>
-                        <p>Ibu Riun Latbual</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>Terima kasih atas doa dan restunya. <span class="footer-heart"><i class="fas fa-heart"></i></span> for Faisal & Anisa</p>
-        </div>
-    </footer>
-
-    <!-- Music Control -->
-    <div class="music-control" id="musicControl">
-        <i class="fas fa-music"></i>
-    </div>
-
-    <!-- Scroll to Top -->
-    <div class="scroll-top" id="scrollTop">
-        <i class="fas fa-chevron-up"></i>
-    </div>
-
-    <!-- Background Music -->
-    <audio id="backgroundMusic" loop>
-        <source src="assets/musik.mp3" type="audio/mpeg">
-        Browser Anda tidak mendukung elemen audio.
-    </audio>
-
-    <script>
-        // Navigation
-        const header = document.getElementById('header');
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        const scrollTopBtn = document.getElementById('scrollTop');
-
-        // Navbar Hide on Scroll
-        let lastScrollTop = 0;
-        const navbarHeight = header.offsetHeight;
-
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > lastScrollTop && scrollTop > navbarHeight) {
-                // Scroll down - hide navbar
-                header.style.transform = 'translateY(-100%)';
-                header.style.transition = 'transform 0.3s ease';
-            } else {
-                // Scroll up - show navbar
-                header.style.transform = 'translateY(0)';
-            }
-            
-            // Untuk sticky header effect (opsional)
-            if (scrollTop > 100) {
-                header.classList.add('scrolled');
-                scrollTopBtn.classList.add('active');
-            } else {
-                header.classList.remove('scrolled');
-                scrollTopBtn.classList.remove('active');
-            }
-            
-            lastScrollTop = scrollTop;
-        });
-
-        // Mobile menu toggle
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Scroll to top
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Photo Gallery Slideshow
-        let currentSlide = 0;
-        const slides = document.querySelector('.slides');
-        const dots = document.querySelectorAll('.gallery-dot');
-        const prevBtn = document.querySelector('.gallery-arrow.prev');
-        const nextBtn = document.querySelector('.gallery-arrow.next');
-        const totalSlides = document.querySelectorAll('.slide').length;
-
-        function showSlide(index) {
-            if (index >= totalSlides) {
-                currentSlide = 0;
-            } else if (index < 0) {
-                currentSlide = totalSlides - 1;
-            } else {
-                currentSlide = index;
-            }
-            
-            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            // Update active dot
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlide);
-            });
-        }
-
-        // Next slide
-        nextBtn.addEventListener('click', () => {
-            showSlide(currentSlide + 1);
-        });
-
-        // Previous slide
-        prevBtn.addEventListener('click', () => {
-            showSlide(currentSlide - 1);
-        });
-
-        // Dot navigation
-        dots.forEach(dot => {
-            dot.addEventListener('click', function() {
-                const index = parseInt(this.getAttribute('data-index'));
-                showSlide(index);
-            });
-        });
-
-        // Auto slide every 5 seconds
-        setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, 5000);
-
-        // Countdown Timer
-        function updateCountdown() {
-            const weddingDate = new Date('November 6, 2025 11:00:00').getTime();
-            const now = new Date().getTime();
-            const timeLeft = weddingDate - now;
-            
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
-
-        // Update countdown every second
-        setInterval(updateCountdown, 1000);
-        updateCountdown(); // Initial call
-
-        // Background Music
-        const backgroundMusic = document.getElementById('backgroundMusic');
-        const musicControl = document.getElementById('musicControl');
-        let isPlaying = false;
-        
-        // Toggle music play/pause
-        musicControl.addEventListener('click', function() {
-            if (isPlaying) {
-                backgroundMusic.pause();
-                musicControl.innerHTML = '<i class="fas fa-music"></i>';
-            } else {
-                backgroundMusic.volume = 0.3;
-                backgroundMusic.play().catch(e => {
-                    console.log('Autoplay prevented:', e);
-                });
-                musicControl.innerHTML = '<i class="fas fa-pause"></i>';
-            }
-            isPlaying = !isPlaying;
-        });
-
-        // Play music after user interaction (to comply with browser autoplay policies)
-        document.addEventListener('click', function() {
-            if (!isPlaying) {
-                backgroundMusic.volume = 0.3;
-                backgroundMusic.play().then(() => {
-                    isPlaying = true;
-                    musicControl.innerHTML = '<i class="fas fa-pause"></i>';
-                }).catch(e => {
-                    console.log('Autoplay prevented:', e);
-                });
-            }
-        }, { once: true });
-
-        // Fade in animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeInOnScroll = () => {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('active');
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', fadeInOnScroll);
-        // Initial check
-        fadeInOnScroll();
-
-        // Hapus event listener untuk hover pada nama mempelai
-        // (tidak ada kode untuk hover karena sudah dihapus)
-    </script>
+    // Generate tampilan tamu
+    const container = document.getElementById("guestList");
+    guests.forEach(tamu => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <span class="name">${tamu.name}</span>
+        <a href="${tamu.wa}" target="_blank" class="btn">Kirim</a>
+      `;
+      container.appendChild(card);
+    });
+  </script>
 </body>
-
 </html>
