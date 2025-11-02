@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daftar Tamu Undangan – Faisal & Anisa</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
     body {
       font-family: "Poppins", sans-serif;
       background: linear-gradient(135deg, #f8f9fa, #e3f2fd);
@@ -16,15 +18,28 @@
       align-items: center;
     }
 
-    h1 {
+    header {
+      text-align: center;
       margin-top: 30px;
+    }
+
+    header h1 {
       color: #2c3e50;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      color: #7f8c8d;
+      font-size: 14px;
     }
 
     .guest-list {
-      margin-top: 20px;
+      margin-top: 25px;
       width: 90%;
-      max-width: 500px;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
     .card {
@@ -32,43 +47,64 @@
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       padding: 20px;
-      margin-bottom: 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
     }
 
     .name {
       font-weight: 600;
-      color: #34495e;
+      color: #2c3e50;
+      font-size: 16px;
     }
 
     .btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       text-decoration: none;
       background: #25D366;
       color: white;
-      font-weight: bold;
-      padding: 8px 14px;
-      border-radius: 8px;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: 10px;
       transition: background 0.3s;
+      font-size: 14px;
     }
 
     .btn:hover {
       background: #1ebe5d;
     }
 
+    .btn img {
+      width: 18px;
+      height: 18px;
+    }
+
     footer {
       font-size: 12px;
       color: #888;
       margin: 30px 0 10px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <h1>Daftar Tamu Undangan</h1>
+  <header>
+    <h1>Daftar Tamu Undangan</h1>
+    <p>Faisal Rumakat & Anisa F. Latuwael</p>
+  </header>
+
   <div class="guest-list" id="guestList"></div>
 
-  <footer>Faisal & Anisa Wedding Invitation</footer>
+  <footer>
+    <p>💌 Faisal & Anisa Wedding Invitation</p>
+  </footer>
 
   <script>
     // 🧾 Daftar tamu dengan link WA masing-masing
@@ -221,17 +257,20 @@
       // Tambahkan tamu lainnya di sini
     ];
 
-    // Generate tampilan tamu
-    const container = document.getElementById("guestList");
+   const container = document.getElementById("guestList");
     guests.forEach(tamu => {
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `
         <span class="name">${tamu.name}</span>
-        <a href="${tamu.wa}" target="_blank" class="btn">Kirim</a>
+        <a href="${tamu.wa}" target="_blank" class="btn">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA Logo">
+          Kirim
+        </a>
       `;
       container.appendChild(card);
     });
   </script>
 </body>
 </html>
+
