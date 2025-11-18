@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar Tamu Undangan – Faisal & Anisa</title>
+  <title>Daftar Tamu Undangan – Yulia & Irfandi</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
@@ -97,230 +97,67 @@
 <body>
   <header>
     <h1>Daftar Tamu Undangan</h1>
-    <p>Faisal Rumakat & Anisa F. Latuwael</p>
+    <p>Yulia & Irfandi</p>
   </header>
 
-  <div class="guest-list" id="guestList"></div>
+  <div class="guest-list" id="guestList">
+</div>
 
   <footer>
-    <p>💌 Faisal & Anisa Wedding Invitation</p>
+    <p>💌 Yulia & Irfandi Wedding Invitation</p>
   </footer>
 
   <script>
-    // 🧾 Daftar tamu dengan link WA masing-masing
-    const guests = [
-      {
-        name: "abang usman SiP MH dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+abang+usman+SiP+MH+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71IM0%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Ade nesa dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Ade+nesa+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D712YX%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "ade yunita dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+ade+yunita+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D715N7%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Al dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Al+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71WQX%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Amelia dan suami",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Amelia+dan+suami%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71RJ5%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "angakatan 14 bursel",
-        wa: "https://api.whatsapp.com/send?text=Kepada+angakatan+14+bursel%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71PWA%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "angkatan 14 desa simi",
-        wa: "https://api.whatsapp.com/send?text=Kepada+angkatan+14+desa+simi%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71DQV%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "angkatan 14 waetawa",
-        wa: "https://api.whatsapp.com/send?text=Kepada+angkatan+14+waetawa%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71N5Z%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Beb ida mu'min dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Beb+ida+mu%27min+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D7137X%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Citra",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Citra%2C%0AKami+mengundang+Anda+untuk+menghadiri+acara+pernikahan+kami%0A%0AFaisal+Rumakat+%26+Anisa+F.+Latuwael%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D69BMV"
-      },
-      {
-        name: "beb Lina dan suami",
-        wa: "https://api.whatsapp.com/send?text=Kepada+beb+Lina+dan+suami%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71IU4%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Besti rini dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Besti+rini+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71AE1%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "besti sari dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+besti+sari+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71LA7%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "chum dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+chum+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71N1G%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Ibu eji dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Ibu+eji+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71BTQ%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "ica dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+ica+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71UM2%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Ipar tima dan suami",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Ipar+tima+dan+suami%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D7196U%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "kaka ina dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+kaka+ina+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71UJN%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Kaka Sinta dan suami",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Kaka+Sinta+dan+suami%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71ZWN%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Keluarga besar ikab",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Keluarga+besar+ikab%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71KIC%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Kka embe dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Kka+embe+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D713V2%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Kka mala dan suami",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Kka+mala+dan+suami%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71VLX%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Kka oma dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Kka+oma+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D717RT%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Mama mira dan suami",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Mama+mira+dan+suami%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D710N4%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Mara akmil dan suami",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Mara+akmil+dan+suami%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71YZ4%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "mis ica dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+mis+ica+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71YDC%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Mom Lisa dan suami",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Mom+Lisa+dan+suami%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D717IH%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Nanu dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Nanu+dan+pasangan+%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71JGM%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "noca dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+noca+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71WUI%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "onco mirla dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+onco+mirla+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71LAQ%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "pipit dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+pipit+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D710PJ%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "sahabat muna dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+sahabat+muna+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71PKC%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "sarina dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+sarina+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71P9T%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "sepupu neng s'kom dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+sepupu+neng+s%27kom+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71FHM%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "squad tarjelas",
-        wa: "https://api.whatsapp.com/send?text=Kepada+squad+tarjelas%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D71QFG%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "angkatan E dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+angkatan+E+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D73QQ8%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "kak ija dan suami",
-        wa: "https://api.whatsapp.com/send?text=Kepada+kak+ija+dan+suami%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D733RI%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Kaka ulan dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Kaka+ulan+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D73LN5%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "kaka nang dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+kaka+nang+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D74C8N%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "cha ana dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+cha+ana+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D74HMS%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "kak amel dan pasangan",
-        wa: "https://api.whatsapp.com/send?text=Kepada+kak+amel+dan+pasangan%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D74LNO%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "ibu2 jadi indah waetawa",
-        wa: "https://api.whatsapp.com/send?text=Kepada+ibu2+jadi+indah+waetawa%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D74XPZ%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "ibu.talud pica waetawa",
-        wa: "https://api.whatsapp.com/send?text=Kepada+ibu.talud+pica+waetawa%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D74V4D%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "ibu2 gang peci waetawa",
-        wa: "https://api.whatsapp.com/send?text=Kepada+ibu2+gang+peci+waetawa%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D74PVZ%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "Ibu-ibu bawani waetawa",
-        wa: "https://api.whatsapp.com/send?text=Kepada+Ibu-ibu+bawani+waetawa%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269DBA5SF%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "ibu-ibu kompleks bawani",
-        wa: "https://api.whatsapp.com/send?text=Kepada+ibu-ibu+kompleks+bawani%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269DBALVK%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      {
-        name: "ibu kompleks lowoy",
-        wa: "https://api.whatsapp.com/send?text=Kepada+ibu+kompleks+lowoy%2C%0D%0AKami+mengundang+saudara%2F%28i%29+untuk+menghadiri+acara+pernikahan+kami%0D%0A%0D%0A%2AFaisal+Rumakat%2C+S.H+%26+Anisa+F.+Latuwael%2C+S.E.%2A%0D%0A%0D%0APesan+ini+merupakan+undangan+resmi+dari+kami.+Silahkan+kunjungi+link+berikut+untuk+membuka+undangan+anda%3A%0D%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269DBAXNB%0D%0A%0D%0AAtas+kehadiran+%26+doa+restu+dari+saudara%2C+kami+ucapkan+terimakasih.%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A_Pesan+ini+dikirim+melalui_+wevitation.com"
-      },
-      // {
-      //   name: "Citra",
-      //   wa: "https://api.whatsapp.com/send?text=Kepada+Citra%2C%0AKami+mengundang+Anda+untuk+menghadiri+acara+pernikahan+kami%0A%0AFaisal+Rumakat+%26+Anisa+F.+Latuwael%0Ahttps%3A%2F%2Fwevitation.com%2Ffaisal-anisa%2F269D69BMV"
-      // },
-      
-      // Tambahkan tamu lainnya di sini
-    ];
+    const container = document.getElementById("guestList");
+    
+    // 🚨 PASTE WEB APP URL DARI GOOGLE APPS SCRIPT KAMU DI SINI! 🚨
+    const webAppUrl = "https://script.google.com/macros/s/AKfycbxRnuERAjYngA5TRWNx0eg1v4EbKt0kRdnajutfgJdhqNz-2hESvdbRR_ZzJJ6PvcU-hA/exec"; 
 
-   const container = document.getElementById("guestList");
-    guests.forEach(tamu => {
-      const card = document.createElement("div");
-      card.className = "card";
-      card.innerHTML = `
-        <span class="name">${tamu.name}</span>
-        <a href="${tamu.wa}" target="_blank" class="btn">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA Logo">
-          Kirim
-        </a>
-      `;
-      container.appendChild(card);
-    });
+    async function loadGuests() {
+      try {
+        // Tampilkan pesan loading yang lebih menarik
+        container.innerHTML = '<p class="info-message">Memuat daftar tamu undangan...</p>';
+        
+        // Ambil data dari Apps Script (Google Sheet)
+        const response = await fetch(webAppUrl);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const guests = await response.json();
+
+        // Hapus pesan loading
+        container.innerHTML = '';
+        
+        // Iterasi dan tampilkan data
+        if (guests.length === 0) {
+          container.innerHTML = '<p class="info-message">Daftar tamu kosong saat ini.</p>';
+        } else {
+          guests.forEach(tamu => {
+            const card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = `
+              <span class="name">${tamu.name}</span>
+              <a href="${tamu.wa}" target="_blank" class="btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA Logo">
+                Kirim
+              </a>
+            `;
+            container.appendChild(card);
+          });
+        }
+
+      } catch (error) {
+        console.error("Gagal memuat data tamu:", error);
+        container.innerHTML = '<p class="info-message error-message">❌ Ups! Gagal memuat daftar tamu. Mohon coba lagi nanti atau hubungi admin.</p>';
+      }
+    }
+
+    // Panggil fungsi saat halaman dimuat
+    loadGuests();
   </script>
 </body>
 </html>
-
 
 
